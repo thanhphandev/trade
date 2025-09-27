@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## NeoTrade • Binary Options MVP UI
 
-## Getting Started
+A high-fidelity, dark-first binary options trading terminal built with Next.js 15, Tailwind CSS v4, Shadcn-inspired components, Zustand state management, Framer Motion interactions, and lightweight-charts for real-time K-line visualisations.
 
-First, run the development server:
+### ✨ Highlights
 
-```bash
+- **Live market feed** via Binance 1-minute K-line WebSocket with graceful offline fallbacks
+- **Candlestick, RSI, and MACD** visual stacks powered by `lightweight-charts`
+- **Animated price ticker** with neon flash cues on every tick
+- **Three-column desk layout** featuring: navigation sidebar, market analytics core, and execution panel
+- **Actionable trade panel** with quick staking chips, expiry selectors, and neon Call/Put controls
+- **Active orders board** with live countdowns and auto-settlement logic baked into the store
+- **Theme toggle** (dark-first) persisting user preference
+
+### 🚀 Quick start
+
+```powershell
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit http://localhost:3000 to explore the trading cockpit.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🧠 Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/lib/trading-store.ts` — centralized Zustand store for market data, session balances, and BO lifecycle
+- `src/lib/hooks/use-price-feed.ts` — Binance WebSocket bootstrap + historical seeding + reconnection strategy
+- `src/components/chart-area.tsx` — candlestick, RSI, MACD charts with responsive ResizeObservers
+- `src/components/trade-panel.tsx` — Call/Put controls with payout projections and animated feedback
+- `src/components/active-orders.tsx` — neon order tape with live countdowns and ITM/OTM status colouring
+- `docs/feature-roadmap.md` — lộ trình phát triển tính năng chi tiết cho NeoTrade
 
-## Learn More
+### 🛠 Tooling
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` — start the Next.js dev server (Turbopack)
+- `npm run build` — production build
+- `npm run lint` — lint with ESLint 9 and TypeScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ⚠️ Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The Binance WebSocket endpoint is configured for public markets. In restricted environments the app seeds synthetic candles so the UI remains demonstrable.
+- Further integration (auth, order routing, persistence) can hook into the provided store without changing the UI contract.
