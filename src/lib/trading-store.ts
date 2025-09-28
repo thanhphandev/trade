@@ -110,17 +110,8 @@ const INITIAL_SYMBOLS: TradingPair[] = [
   { label: "SOL / USDT", value: "SOLUSDT" },
   { label: "XRP / USDT", value: "XRPUSDT" },
   { label: "ADA / USDT", value: "ADAUSDT" },
-
-  // --- Thêm các cặp phổ biến khác từ Binance ---
   { label: "BNB / USDT", value: "BNBUSDT" },
   { label: "DOGE / USDT", value: "DOGEUSDT" },
-  { label: "MATIC / USDT", value: "MATICUSDT" },
-  { label: "DOT / USDT", value: "DOTUSDT" },
-  { label: "LTC / USDT", value: "LTCUSDT" },
-  { label: "TRX / USDT", value: "TRXUSDT" },
-  { label: "AVAX / USDT", value: "AVAXUSDT" },
-  { label: "SHIB / USDT", value: "SHIBUSDT" },
-  { label: "LINK / USDT", value: "LINKUSDT" }
 ];
 
 
